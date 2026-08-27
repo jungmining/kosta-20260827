@@ -1,16 +1,5 @@
 {
-  "hooks": {
-    "PreToolUse": [
-      {
-        "matcher": "Glob|Grep",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "node .claude/hooks/block-pretooluse.js",
-            "statusMessage": "모든 도구 호출을 테스트용으로 차단하는 중"
-          }
-        ]
-      }
-    ]
-  }
+ "env": {
+  "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+ }
 }
