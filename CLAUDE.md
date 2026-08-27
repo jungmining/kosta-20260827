@@ -30,6 +30,10 @@ node src/cli.js index ./docs  # 색인
 node src/cli.js find "검색어" # 검색
 ```
 
+## 오케스트레이션 문서
+
+오케스트레이션의 전체 개요와 명령·에이전트별 설명은 [docs/README.md](docs/README.md)를 참고한다. 실제 실행 계약은 `.claude/commands/`와 `.claude/agents/`의 원본을 따른다.
+
 ## 미구현 항목
 
 - 색인 갱신 시 삭제된 파일이 색인에 남는다

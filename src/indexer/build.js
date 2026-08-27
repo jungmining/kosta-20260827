@@ -2,7 +2,7 @@
 
 import { writeFile } from 'node:fs/promises';
 import { relative } from 'node:path';
-import { tokenize, countTokens } from '../shared/tokenize.js';
+import { tokenize, countTokens } from '../shared/tokenize.before.js';
 import { indexPath } from '../shared/paths.js';
 import { walk } from './walk.js';
 import { readDocument } from './read.js';
