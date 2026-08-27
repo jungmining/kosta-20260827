@@ -7,8 +7,24 @@ import { DocSearchError } from './shared/errors.js';
 
 const USAGE = `사용법:
   docsearch index <디렉터리>
-  docsearch find  <검색어> [디렉터리]
+  docsearch find  <검색어> [디렉터리] [--limit 개수]
 `;
+
+function parseFindArgs(args) {
+  const positional = [];
+  let limit = 10;
+
+  for (let index = 0; index < args.length; index += 1) {
+    if (args[index] === '--limit') {
+      limit = Number(args[index + 1]);
+      index += 1;
+    } else {
+      positional.push(args[index]);
+    }
+  }
+
+  return { query: positional[0], root: positional[1] ?? '.', limit };
+}
 
 async function main(argv) {
   const [command, ...rest] = argv;
@@ -21,8 +37,8 @@ async function main(argv) {
   }
 
   if (command === 'find') {
-    const [query, root = '.'] = rest;
-    const results = await search(root, query ?? '');
+    const { query, root, limit } = parseFindArgs(rest);
+    const results = await search(root, query ?? '', limit);
     if (results.length === 0) {
       console.log('결과 없음');
       return 1;
