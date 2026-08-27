@@ -7,7 +7,7 @@ test('한 글자 토큰은 버린다', () => {
 });
 
 test('불용어를 버린다', () => {
-  assert.deepEqual(tokenize('배포 그리고 롤백'), ['배포', '롤백']);
+  assert.deepEqual(tokenize('배포 그리고 롤백 그래서 따라서'), ['배포', '롤백']);
 });
 
 test('대소문자를 낮춘다', () => {
